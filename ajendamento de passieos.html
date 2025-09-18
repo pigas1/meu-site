@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendamento de Passeios</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0099cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 600px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+
+    h2 {
+      color: #0099cc;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #0099cc;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #0077aa;
+    }
+
+    .mensagem {
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Agende seu Passeio</h1>
+    <p>Preencha o formulário para reservar sua aventura!</p>
+  </header>
+
+  <main>
+    <h2>Formulário de Agendamento</h2>
+    <form id="formAgendamento">
+      <label for="nome">Nome completo:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="data">Data do passeio:</label>
+      <input type="date" id="data" name="data" required>
+
+      <label for="passeio">Tipo de passeio:</label>
+      <select id="passeio" name="passeio" required>
+        <option value="">Selecione...</option>
+        <option value="trilha">Cicloturismo em áreas naturais</option>
+        <option value="barco">Roteiro urbano sustentável</option>
+        <option value="cidade">Bike tour cultural com foco ambiental</option>
+        <option value="aventura">Pedaladas ecológicas com plantio de árvores</option>
+      </select>
+
+      <button type="submit">Agendar</button>
+    </form>
+
+    <div class="mensagem" id="mensagem"></div>
+  </main>
+
+  <script>
+    const form = document.getElementById('formAgendamento');
+    const mensagem = document.getElementById('mensagem');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const nome = form.nome.value.trim();
+      const email = form.email.value.trim();
+      const data = form.data.value;
+      const passeio = form.passeio.value;
+
+      if (!nome || !email || !data || !passeio) {
+        mensagem.style.color = 'red';
+        mensagem.textContent = 'Por favor, preencha todos os campos.';
+        return;
+      }
+
+      mensagem.style.color = 'green';
+      mensagem.textContent = `Obrigado, ${nome}! Seu passeio "${passeio}" foi agendado para o dia ${data}. Entraremos em contato pelo e-mail ${email}.`;
+
+      form.reset(); // limpa o formulário
+    });
+  </script>
+
+</body>
+</html>
