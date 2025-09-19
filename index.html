@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,13 +21,21 @@
     }
 
     main {
-      max-width: 600px;
+      max-width: 800px;
       margin: 30px auto;
       background: white;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 0 10px #ccc;
     }
+
+    footer {
+    background-color: #a8ac47;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    } 
 
     h2 {
       color: #a8ac47;
@@ -38,7 +47,8 @@
       font-weight: bold;
     }
 
-    input, select {
+    input,
+    select {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
@@ -58,7 +68,7 @@
     }
 
     button:hover {
-      background-color: #a8ac47;
+      background-color: #919538;
     }
 
     .mensagem {
@@ -66,8 +76,36 @@
       color: green;
       font-weight: bold;
     }
+
+    .passeios {
+      margin-top: 50px;
+    }
+
+    .passeio {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+
+    .passeio img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .passeio div {
+      flex: 1;
+    }
+
+    .passeio h3 {
+      margin-top: 0;
+      color: #a8ac47;
+    }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -100,13 +138,53 @@
     </form>
 
     <div class="mensagem" id="mensagem"></div>
+
+    <!-- Seção de fotos e descrições -->
+    <section class="passeios">
+      <h2>Conheça Nossos Passeios</h2>
+
+      <div class="passeio">
+        <img src="ajendamento de passieos 1" alt="Trilha">
+        <div>
+          <h3>Cicloturismo em Áreas Naturais</h3>
+          <p>Explore trilhas ecológicas, respire ar puro e pedale por paisagens exuberantes. Ideal para quem ama a
+            natureza!</p>
+        </div>
+      </div>
+
+      <div class="passeio">
+        <img src="ajendamento de passieos 2" alt="Passeio de barco">
+        <div>
+          <h3>Roteiro Urbano Sustentável</h3>
+          <p>Descubra a cidade de uma forma diferente! Visite locais sustentáveis e aprenda sobre práticas ecológicas
+            urbanas.</p>
+        </div>
+      </div>
+
+      <div class="passeio">
+        <img src="ajendamento de passieos 3" alt="Bike tour">
+        <div>
+          <h3>Bike Tour Cultural com Foco Ambiental</h3>
+          <p>Conheça pontos culturais e históricos enquanto aprende sobre ações de preservação ambiental.</p>
+        </div>
+      </div>
+
+      <div class="passeio">
+        <img src="ajendamento de passieos 4" alt="Aventura ecológica">
+        <div>
+          <h3>Pedaladas Ecológicas com Plantio de Árvores</h3>
+          <p>Junte-se a essa aventura e ajude o meio ambiente com o plantio de mudas durante o trajeto!</p>
+        </div>
+      </div>
+
+    </section>
   </main>
 
   <script>
     const form = document.getElementById('formAgendamento');
     const mensagem = document.getElementById('mensagem');
 
-    form.addEventListener('submit', function(event) {
+    form.addEventListener('submit', function (event) {
       event.preventDefault();
 
       const nome = form.nome.value.trim();
@@ -126,6 +204,11 @@
       form.reset(); // limpa o formulário
     });
   </script>
-
+  <footer>
+    <p>&copy; 2025 - Página desenvolvida para fins educacionais/</p>
+  </footer>
+  <br>
+  <br>
 </body>
+
 </html>
